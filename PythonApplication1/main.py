@@ -8,16 +8,11 @@ import answer
 
 origin_path=sys.argv[1]
 test_path=sys.argv[2]
-answer_path=sys.argv[3]
+answer_path=sys.argv[3] #传入三个路径参数
 fo = open_file.file_open()
-article_dict = dict();
-text_origin = open(origin_path,encoding='utf-8') #打开存放原文文档的文件
-str_1 =text_origin.read() #字符串化
 list_=[" "," "]
-list_[0]=str_1
-
-
-list_[1]=fo.require_list(test_path)
+list_[0]=fo.require_list(origin_path)
+list_[1]=fo.require_list(test_path) #打开两个文件
 sm =similar_analyse.similar_analyse.analyse(list_[0],list_[1]) #检测两篇文章的字符串相似度
 print(test_path +' 相似度：'+ str(sm))
 

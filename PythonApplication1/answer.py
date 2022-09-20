@@ -2,5 +2,8 @@ import datetime
 
 class answer:
     def answer(self,sm,path):
-      f = open(path,'w')
-      print(sm,file=f)
+      try:
+        f = open(path,'w')
+        print(sm,file=f)
+      except Exception:
+        print("无法写入"+path)  
